@@ -23,11 +23,18 @@ class Board
     board
   end
 
+  def random_cell
+    @grid[rand(@height)][rand(@width)]
+  end
+
   def mine_seeder(number_of_mines)
-    number_of_mines.times do
-      cell = @grid[rand(@height)][rand(@width)]
-      cell.has_a_mine = true
+    return if number_of_mines <= 0
+    cell = random_cell
+    if cell.has_a_mine
+      cell = random_cell until cell.does_not_have_a_mine
     end
+    cell.has_a_mine = true
+    mine_seeder( number_of_mines - 1 ) 
   end
 
   def mine_counter(row, col)

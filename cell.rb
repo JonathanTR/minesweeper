@@ -7,6 +7,10 @@ class Cell
     @number_of_mines_nearby = 0
   end
 
+  def does_not_have_a_mine
+    !@has_a_mine
+  end
+
   def has_no_mines
     @number_of_mines_nearby == 0 && @has_a_mine == false
   end

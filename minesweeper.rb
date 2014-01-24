@@ -2,17 +2,12 @@ require 'debugger'
 require './board'
 require './cell'
 require 'rubygems'
+require 'sinatra'
 
-board = Board.new(10, 10, 99)
-board.render_to_console
+get '/' do
+  "Welcome to MineSweeper!"
+end
 
+get '/new' do
 
-# require 'sinatra'
-
-# get '/' do
-#   "Welcome to MineSweeper!"
-# end
-
-# get '/new' do
-
-# end
+end
